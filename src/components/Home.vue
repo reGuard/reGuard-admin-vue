@@ -10,7 +10,9 @@
     const currentLanguage = locale.value === 'zh' ? 'en' : 'zh';
     locale.value = currentLanguage // 要切换的语言
     localStorageCache.setItem('language', currentLanguage)
-  }  
+  }
+
+
 </script>
 
 <template id="home">
@@ -48,15 +50,17 @@
           <input 
           type="email" 
           name="email" 
-          class="w-full placeholder:text-lg mt-1 px-4 py-3  bg-white border shadow-sm transition duration-150 border-slate-300 placeholder-slate-400 focus:scale-105 hover:scale-105 focus:border-sky-800 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1" 
+          class="w-full placeholder:text-lg mt-1 px-4 py-3  bg-white border shadow-sm transition duration-150 border-slate-300 placeholder-slate-400 focus:scale-105 hover:scale-105 focus:border-sky-800 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1"
           :placeholder= "$t('placeholder')"
           />
         </div>
-        <button 
-        class='bg-primary transition duration-150 ease-in-out hover:scale-105 rounded-md text-white mt-4 w-96 flex flex-row items-center justify-center'>
-          <img class='pr-4 w-12 h-12' src='../assets/monitor.svg' alt='monitor'>
-          <text class='pl-2 text-lg'>{{$t('continue')}}</text> 
-        </button>
+        <router-link to="/index">
+          <button
+              class='bg-primary transition duration-150 ease-in-out hover:scale-105 rounded-md text-white mt-4 w-96 flex flex-row items-center justify-center'>
+            <img class='pr-4 w-12 h-12' src='../assets/monitor.svg' alt='monitor'>
+            <text class='pl-2 text-lg'>{{$t('continue')}}</text>
+          </button>
+        </router-link>
     </div>
      <div class='h-1/6 mt-auto flex items-end'>
           <text class='w-full flex flex-col justify-center items-center mb-4 opacity-50'>
