@@ -1,16 +1,15 @@
-
 <script setup lang="ts">
-  import { useI18n } from 'vue-i18n'
-  import localStorageCache from '../global/localStorageCache/index'
-  const { locale } = useI18n()
-  
-  locale.value = localStorageCache.getItem('language') || 'zh'
-  const language = locale.value
-  const changeLanguage = () => {
-    const currentLanguage = locale.value === 'zh' ? 'en' : 'zh';
-    locale.value = currentLanguage // 要切换的语言
-    localStorageCache.setItem('language', currentLanguage)
-  }
+import { useI18n } from 'vue-i18n'
+import localStorageCache from '@/global/localStorageCache/index'
+const { locale } = useI18n()
+
+locale.value = localStorageCache.getItem('language') || 'zh'
+ const language = locale.value
+ const changeLanguage = () => {
+  const currentLanguage = locale.value === 'zh' ? 'en' : 'zh';
+  locale.value = currentLanguage // 要切换的语言
+  localStorageCache.setItem('language', currentLanguage)
+}
 
 
 </script>
@@ -25,10 +24,10 @@
           <button class='transition duration-150 ease-in-out hover:scale-125 w-8 h-8'
           @click="changeLanguage"
           >
-          <img 
-          :src= "[
-          language == 'zh' 
-          ? 'src/assets/zh.svg' 
+          <img
+          :src="[
+          language === 'zh'
+          ? 'src/assets/zh.svg'
           : 'src/assets/en.svg'
           ]"
           alt='language'/>
