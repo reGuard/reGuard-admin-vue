@@ -19,7 +19,7 @@ locale.value = localStorageCache.getItem('language') || 'zh'
   <div class="head-content font-sans ">
     <div class="flex items-center shadow-lg w-screen h-20 rounded-lg fixed left-0 top-0 flex-wrap ">
       <div class="flex-1 -ml-5 ">
-        <img src='../../../assets/logo.png' class="w-10 h-10 leading-10 inline-block ml-8 " alt="没有网络">
+        <img src='../../assets/logo.png' class="w-10 h-10 leading-10 inline-block ml-8 " alt="没有网络">
         <span class="pl-2 text-2xl align-middle">re</span>
         <span class="text-2xl font-semibold text-blue-500 align-middle">Guard</span>
       </div>
