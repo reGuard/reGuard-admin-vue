@@ -89,6 +89,11 @@ onMounted(()=>{
     yAxis: {
       type: 'value'
     },
+    title:{
+      text:'用户停留时间',
+      left:10,
+      top:10
+    },
     series: [
       {
         data: [120, 200, 300],
@@ -109,7 +114,7 @@ onMounted(()=>{
 </script>
 
 <template>
-  <div class="flex justify-between w-screen  mt-20 font-sans">
+  <div class="flex justify-between w-screen  mt-20 font-sans ">
     <div class="flex-1">
       <div class="flex flex-col justify-center ml-20 mt-1">
         <div class="w-10/12 h-40 shadow-2xl mt-3 rounded-xl border ">
@@ -146,7 +151,7 @@ onMounted(()=>{
         </div>
       </div>
     </div>
-    <div class="flex-1">
+    <div class="flex-1 justify-center items-center  transition duration-150 ease-in-out hover:scale-105">
       <div class="w-11/12 border mt-10 shadow-xl rounded-xl" style="height: 500px" id="countInfo">
 
       </div>

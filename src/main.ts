@@ -6,7 +6,7 @@ import i18n from './lang'
 import router from "@/router";
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-
+import { createPinia } from 'pinia'
 const app = createApp(App)
 
 app.use(i18n)
@@ -17,4 +17,5 @@ app.use(router)
 app.use(ElementPlus)
 //注册ID
 judgeID()
+app.use(createPinia())
 app.mount('#app')

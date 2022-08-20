@@ -709,6 +709,14 @@
   "resolved" "https://registry.npmmirror.com/pify/-/pify-2.3.0.tgz"
   "version" "2.3.0"
 
+"pinia@^2.0.20":
+  "integrity" "sha512-fdHHumXW/0U5HhxmY1emo3I4z85p8NJPdbtFQSlmJXFe3ktuF0pYNVgVtk2q+j2zCtTufY763xzaEMx0t6T59g=="
+  "resolved" "https://registry.npmmirror.com/pinia/-/pinia-2.0.20.tgz"
+  "version" "2.0.20"
+  dependencies:
+    "@vue/devtools-api" "^6.2.1"
+    "vue-demi" "*"
+
 "postcss-import@^14.1.0":
   "integrity" "sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw=="
   "resolved" "https://registry.npmmirror.com/postcss-import/-/postcss-import-14.1.0.tgz"
@@ -881,7 +889,7 @@
   "resolved" "https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz"
   "version" "2.3.0"
 
-"typescript@*", "typescript@^4.6.4":
+"typescript@*", "typescript@^4.6.4", "typescript@>=4.4.4":
   "integrity" "sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ=="
   "resolved" "https://registry.npmmirror.com/typescript/-/typescript-4.7.4.tgz"
   "version" "4.7.4"
@@ -941,7 +949,7 @@
     "@volar/vue-language-core" "0.39.5"
     "@volar/vue-typescript" "0.39.5"
 
-"vue@^2.6.0 || ^3.2.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.37", "vue@3.2.37":
+"vue@^2.6.0 || ^3.2.0", "vue@^2.6.14 || ^3.2.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.37", "vue@3.2.37":
   "integrity" "sha512-bOKEZxrm8Eh+fveCqS1/NkG/n6aMidsI6hahas7pa0w/l7jkbssJVsRhVDs07IdDq7h9KHswZOgItnwJAgtVtQ=="
   "resolved" "https://registry.npmmirror.com/vue/-/vue-3.2.37.tgz"
   "version" "3.2.37"

@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import { Search } from '@element-plus/icons-vue'
 import localStorageCache from '@/global/localStorageCache'
+import {changeTable} from "@/Hooks/changeTabs/changeTabs";
 const { locale } = useI18n()
 
 locale.value = localStorageCache.getItem('language') || 'zh'
@@ -18,13 +19,15 @@ locale.value = localStorageCache.getItem('language') || 'zh'
 
   <div class="head-content font-sans ">
     <div class="flex items-center shadow-lg w-screen h-20 rounded-lg fixed left-0 top-0 flex-wrap ">
-      <div class="flex-1 -ml-5 ">
-        <img src='../../assets/logo.png' class="w-10 h-10 leading-10 inline-block ml-8 " alt="没有网络">
+      <div class="flex-1 -ml-5 " @click="changeTable('content')">
+        <img src='../../assets/logo.png' class="w-10 h-10 leading-10 inline-block ml-8 "
+             alt="没有网络"  >
         <span class="pl-2 text-2xl align-middle">re</span>
         <span class="text-2xl font-semibold text-blue-500 align-middle">Guard</span>
       </div>
       <div class="flex-1 inline font-semibold subpixel-antialiased ">
         <span class="mr-10">Getting Start</span>
+        <span class="mr-10" @click="changeTable('performance')">性能面板</span>
         <span>Docs</span>
       </div>
       <div class="flex-1 ml-20">

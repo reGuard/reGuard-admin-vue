@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import Header from '../../components/Header/Header.vue'
-import Content from './content/Content.vue'
-import JsErrorInfo from  './JsErrorInfo/index.vue'
+import {changeTable,currentTable} from "@/Hooks/changeTabs/changeTabs";
 </script>
 
 <template>
-    <Header />
-<!--    <Content />-->
-  <JsErrorInfo/>
+    <Header/>
+  <component :is="currentTable.tabComp"></component>
 </template>
 
 <style>
