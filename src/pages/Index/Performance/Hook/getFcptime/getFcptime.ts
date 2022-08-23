@@ -1,19 +1,18 @@
-import request from "@/service/index"
-import avgFunc from '@/global/avgFunc/avg'
 import Iresult from "@/pages/Index/Performance/Hook/type/type";
+import request from "@/service";
+import avgFunc from "@/global/avgFunc/avg";
 
-const getFpTime = async(id: string = 'tracker') =>{
+export default async function (id: string = 'tracker'){
     const newArr: number[] = []
     const result: Iresult = await request.get({
         url:`/tracker?uuid=${id}`
     })
     if (result.code == 1 && result.msg == 'success'){
         result.data.forEach((item:any)=>{
-            if(item.name === 'FP'){
-                newArr.push(item.FPtime)
+            if(item.name === 'FCP'){
+                newArr.push(item.FCPtime)
             }
         })
     }
     return avgFunc(newArr)
 }
-export  default  getFpTime

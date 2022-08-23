@@ -10,7 +10,7 @@
   </div>
   <div class="w-96 h-36 shadow-lg rounded-xl ">
     <span class="ml-4 mt-10 font-bold text-xl ">FCP平均时间</span>
-    <P class="text-3xl ml-4 mt-12">{{0}}ms</P>
+    <P class="text-3xl ml-4 mt-12">{{FCPTime ? FCPAvgTime : 0}}ms</P>
   </div>
 </div>
   <div class="flex justify-start">
@@ -29,17 +29,22 @@
 </template>
 
 <script setup lang='ts'>
-import {onMounted, getCurrentInstance, onBeforeMount, ref, onBeforeUnmount,computed} from "vue";
+import {onMounted, getCurrentInstance, ref, onBeforeUnmount,computed} from "vue"
 import getDomRTime from '@/pages/Index/Performance/Hook/getdomavgtime/getDomAvgTime'
-
 import getFpTime from './Hook/getFptime/getFpTime'
+import {useRoute} from "vue-router"
 
-
+//截取函数
+const cut =(num: number) =>{
+  const cutNum = num.toString().slice(0,3)
+  return parseInt(cutNum)
+}
+const { query } = useRoute()
 //dom平均时间
 let domTime = ref<number>(0)
 const getDomTime = async () =>{
-  const result = await getDomRTime()
-  domTime.value = result
+  const result = await getDomRTime(query.UUID as string)
+  domTime.value = result as number
 }
 
 //获取dom加载时间
@@ -48,22 +53,32 @@ getDomTime()
 //截取domReady参数前三个
 const domAvgTime = computed(
   ()=>{
-    return domTime.value.toString().slice(0,3)
+    return cut(domTime.value)
 })
 
 //fp平均时间
-let Fp = ref <Number>(0)
+let Fp = ref<number>(0)
 const getfptime = async() =>{
-  const result = await getFpTime()
-  Fp.value = result
+  const result = await getFpTime(query.UUID as string)
+  Fp.value = result as number
 }
 getfptime()
-const FpTime =computed(()=>{
-  return Fp.value.toString().slice(0,3)
+const FpTime = computed(()=>{
+  return cut(Fp.value)
 })
 
-
+import reqFCPTime from './Hook/getFcptime/getFcptime'
 //FCP平均时间
+let FCPTime = ref<number>(0)
+const getFCPTime = async () => {
+  const result = await reqFCPTime(query.UUID as string)
+  FCPTime.value = result as number
+}
+getFCPTime()
+
+const FCPAvgTime = computed(()=>{
+  return cut(FCPTime.value)
+})
 
 //加载图表
 let option = {

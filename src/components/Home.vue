@@ -26,7 +26,12 @@ const checkId = async (id: string) =>{
   }
   else {
     //测试通过，路由跳转
-    router.replace('/index')
+    router.replace({
+      path:'/index',
+      query:{
+        UUID:Id.value
+      }
+    })
   }
 }
 
