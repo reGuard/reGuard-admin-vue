@@ -3,14 +3,24 @@ import { useI18n } from 'vue-i18n'
 import { Search } from '@element-plus/icons-vue'
 import localStorageCache from '@/global/localStorageCache'
 import {changeTable} from "@/Hooks/changeTabs/changeTabs";
+import { ref } from 'vue'
 const { locale } = useI18n()
 
 locale.value = localStorageCache.getItem('language') || 'zh'
- const language = locale.value
- const changeLanguage = () => {
+const language_path = ref(locale.value=== 'zh'
+          ? 'src/assets/zh.svg'
+          : 'src/assets/en.svg')
+
+ 
+const changeLanguage = () => {
+  
   const currentLanguage = locale.value === 'zh' ? 'en' : 'zh'
   locale.value = currentLanguage // 要切换的语言
   localStorageCache.setItem('language', currentLanguage)
+  
+  language_path.value = currentLanguage === 'zh'
+          ? 'src/assets/zh.svg'
+          : 'src/assets/en.svg'
 }
 
 const handleClick = (tab: TabsPaneContext) => {
@@ -29,8 +39,8 @@ const handleClick = (tab: TabsPaneContext) => {
         <span class="text-2xl font-semibold text-blue-500 align-middle">Guard</span>
       </div>
       <div class="flex-1 inline font-semibold subpixel-antialiased ">
-        <span class="mr-10">Getting Start</span>
-        <span>Docs</span>
+        <span class="mr-10">{{$t("Getting Start")}}</span>
+        <span>{{$t("Docs")}}</span>
       </div>
       <div class="flex-1 ml-20">
         <!--  TODO:阴影-->
@@ -49,17 +59,13 @@ const handleClick = (tab: TabsPaneContext) => {
         </el-tabs>
       </div>
       <div class="flex-1 flex justify-end mr-20">
-        <button class='transition duration-150 ease-in-out hover:scale-125 w-8 h-8 mr-5 '
-                @click="changeLanguage"
-        >
-          <img
-              :src="[
-          language === 'zh'
-          ? 'src/assets/zh.svg'
-          : 'src/assets/en.svg'
-          ]"
-              alt='language'/>
-        </button>
+          <button class='transition duration-150 ease-in-out hover:scale-125 w-8 h-8 mr-5 '
+                  @click="changeLanguage"
+          >
+            <img
+            :src= "language_path"
+            alt='language'/>
+          </button>
         <svg
             class="w-8 h-8 transition duration-150 ease-in-out hover:scale-125 hover:cursor-pointer"
             height="24" aria-hidden="true" viewBox="0 0 16 16"  width="24" data-view-component="true">
