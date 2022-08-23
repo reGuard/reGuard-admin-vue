@@ -31,7 +31,7 @@ class Request {
       if (this.showLoading) {
         this.loading = ElLoading.service({
           lock: true,
-          text: '请求中',
+          text: '加载中',
           background: 'rgba(0,0,0,0.5)'
         })
       }

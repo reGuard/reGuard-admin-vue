@@ -7,7 +7,6 @@ import router from "@/router";
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import { createPinia } from 'pinia'
-import Tracker from '@/SDK/index.esm.js'
 import localStorageCache from '@/global/localStorageCache/index'
 const app = createApp(App)
 import * as echarts from 'echarts'

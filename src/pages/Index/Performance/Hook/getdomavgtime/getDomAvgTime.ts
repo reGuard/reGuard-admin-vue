@@ -1,6 +1,7 @@
 import  axios from 'axios'
 import avg from "@/global/avgFunc/avg";
 import localStorageCache from "@/global/localStorageCache";
+import quest from "@/service";
 interface Idata{
     DOMReady: number
     reportTime:number
@@ -9,7 +10,9 @@ interface Idata{
 }
    const UUID = localStorageCache.getItem('ID')
    const   getDomRTime = async(id:string = '') => {
-       const result =  await axios.get(`http://43.142.180.91:3000/tracker?uuid=${UUID}`)
+       const result:any =  await quest.get({
+           url:''
+       })
        console.log(result.data.data)
        let newArr: number[ ] = []
        result.data.data.forEach((item:Idata)=>{

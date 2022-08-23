@@ -2,15 +2,15 @@
 <div class="flex justify-evenly mt-28  ">
   <div class="w-96 h-36 shadow-lg rounded-xl text-left ">
     <span class="ml-4 mt-10 font-bold text-xl ">Dom平均解析时间</span>
-    <P class="text-3xl ml-4 mt-12">{{domTime ? domAvgTime : 0}}</P>
+    <P class="text-3xl ml-4 mt-12">{{domTime ? domAvgTime : 0}}ms</P>
   </div>
   <div class="w-96 h-36 shadow-lg rounded-xl ">
     <span class="ml-4 mt-10 font-bold text-xl ">FP平均时间</span>
-    <P class="text-3xl ml-4 mt-12">{{Fp? FpTime : 0}}</P>
+    <P class="text-3xl ml-4 mt-12">{{Fp? FpTime : 0}}ms</P>
   </div>
   <div class="w-96 h-36 shadow-lg rounded-xl ">
     <span class="ml-4 mt-10 font-bold text-xl ">FCP平均时间</span>
-    <P class="text-3xl ml-4 mt-12">{{0}}</P>
+    <P class="text-3xl ml-4 mt-12">{{0}}ms</P>
   </div>
 </div>
   <div class="flex justify-start">
@@ -18,11 +18,11 @@
     <div class="w-5/12 h-96 shadow-md rounded-xl  font-bold text-xl mt-4 ml-16">
       <span class="ml-4  inline-block mt-7 ">其他解析时间</span>
       <ul class="text-base ml-12 mt-8" >
-        <li >DNS解析时间:{{0}}</li>
+        <li >DNS解析时间:{{0}}ms</li>
         <br>
-        <li>建立TCP连接耗时{{0}}</li>
+        <li>建立TCP连接耗时:{{0}}ms</li>
         <br>
-        <li>完整的加载耗时{{0}}</li>
+        <li>完整的加载耗时:{{0}}ms</li>
       </ul>
     </div>
   </div>
