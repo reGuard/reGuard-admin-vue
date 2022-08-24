@@ -18,7 +18,7 @@ import {useRouter} from "vue-router";
 const router  = useRouter()
 const checkId = async (id: string) =>{
   const result:any= await quest.get({
-    url:`?uuid=${id}`
+    url:`tracker?uuid=${id}`
   })
   if(result.data.length === 0 ){
     alert('请输入正确的Project')
@@ -45,7 +45,16 @@ const toIndex = async () =>{
   }
   //如果有输入就查询数据库审核ID
   else{
-    await checkId(Id.value)
+    if(Id.value == 'admin'){
+      router.push({
+        path:'/index',
+        query:{
+          UUID:'admin'
+        }
+      })
+    }else{
+      await checkId(Id.value)
+    }
   }
 }
 

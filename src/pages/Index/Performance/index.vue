@@ -29,16 +29,13 @@
 </template>
 
 <script setup lang='ts'>
-import {onMounted, getCurrentInstance, ref, onBeforeUnmount,computed} from "vue"
+import {onMounted, getCurrentInstance, ref, onBeforeUnmount, computed, reactive} from "vue"
 import getDomRTime from '@/pages/Index/Performance/Hook/getdomavgtime/getDomAvgTime'
 import getFpTime from './Hook/getFptime/getFpTime'
 import {useRoute} from "vue-router"
 
-//截取函数
-const cut =(num: number) =>{
-  const cutNum = num.toString().slice(0,3)
-  return parseInt(cutNum)
-}
+import cut from './Hook/cutnumber/cut'
+
 const { query } = useRoute()
 //dom平均时间
 let domTime = ref<number>(0)
@@ -79,9 +76,19 @@ getFCPTime()
 const FCPAvgTime = computed(()=>{
   return cut(FCPTime.value)
 })
+//获取图表数据
+import getLoadingTime from "@/pages/Index/Performance/Hook/getloadingtable/getLoadingTime";
+const getTableData = async () =>{
+  const loadingData = await getLoadingTime(query.UUID as string)
+  option.series[0].data = loadingData
+  console.log(loadingData);
+  myChart.setOption(option)
+}
+getTableData()
 
 //加载图表
-let option = {
+
+let option = reactive({
   tooltip: {
     trigger: 'item'
   },
@@ -96,7 +103,7 @@ let option = {
   },
   series: [
     {
-      name: 'loadingTimeTable',
+      name: '加载时间',
       type: 'pie',
       radius: ['40%', '70%'],
       avoidLabelOverlap: false,
@@ -123,7 +130,7 @@ let option = {
       ]
     }
   ]
-};
+})
 let myChart:any
 const {proxy} = getCurrentInstance()
 const setEcharts = () =>{
