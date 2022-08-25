@@ -95,49 +95,35 @@ onMounted(()=>{
   JsErrorInfo && myChart.setOption(JsErrorInfo);
   getjserrorinfo()
 })
-
 </script>
 <template>
-<div class="flex justify-between w-screen  mt-20 font-sans">
-  <div class="flex-1">
-
-    <div class="
-    w-11/12 border mt-10 shadow-xl
-    rounded-xl ml-10 transition
-    duration-150
-    focus:border
-    focus:scale-105 hover:scale-105
-    "
-    style="height: 500px"  >
-          <el-table :data="tableData" style="width: 100%"  height="500" >
-            <el-table-column prop="date" label="Time" width="180" />
-            <el-table-column prop="type" label="Type" width="180" />
-            <el-table-column prop="name" label="Position" width="180" />
-            <el-table-column prop="address" label="Info" />
-          </el-table>
+    <div class="flex justify-between w-screen mt-20 font-sans">
+        <div class="flex-1">
+            <div class="w-11/12 border mt-10 shadow-xl rounded-xl ml-10 transition duration-150 focus:border focus:scale-105 hover:scale-105" style="height: 500px">
+                <el-table :data="tableData" style="width: 100%" height="500">
+                    <el-table-column prop="date" label="Time" width="180" />
+                    <el-table-column prop="type" label="Type" width="180" />
+                    <el-table-column prop="name" label="Position" width="180" />
+                    <el-table-column prop="address" label="Info" />
+                </el-table>
+            </div>
+        </div>
+        <div class="flex-1">
+            <div class="flex w-11/12 border mt-10 shadow-xl rounded-xl ml-10 transition duration-150 focus:border focus:scale-105 hover:scale-105" style="height: 500px">
+                <div class="flex-1 flex items-center justify-center" id="js"></div>
+                <div class="flex-1 flex justify-center flex-col ml-10">
+                    <span class="text-2xl">建议</span>
+                    <br />
+                    <ul>
+                        <li>1. 使用具有静态类型检测的TypeScript语言。</li>
+                        <li>2. 项目中配置JSLint、ESLint等插件以检测代码的规范。</li>
+                        <li>3. 避免使用过多的全局变量。</li>
+                        <li>4. 在可能会报错的代码中使用try-catch捕获。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="flex-1">
-    <div class="
-    flex
-    w-11/12 border mt-10 shadow-xl
-    rounded-xl ml-10 transition
-    duration-150
-    focus:border
-    focus:scale-105 hover:scale-105
-    "
-   style="height: 500px" >
-    <div class="flex-1  flex items-center justify-center" id="js" ></div>
-      <div class="flex-1 flex items-center justify-center flex-col">
-        <span>建议</span>
-      </div>
-    </div>
-  </div>
-
-</div>
 </template>
 
-
-<style scoped>
-
-</style>
+<style scoped></style>

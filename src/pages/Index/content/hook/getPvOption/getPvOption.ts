@@ -15,7 +15,7 @@ export default async function (id:string = ''){
     })
     if(result.code == 1 && result.msg == 'success'){
         result.data.forEach((item: any) => {
-            if (item.name == 'PV'){
+            if (item.name == 'targetDom'){
                const time = dayjs(item.time).format('YYYY-MM-DD')
                 for (const key in PVTime){
                     if(time == PVTime[key]){

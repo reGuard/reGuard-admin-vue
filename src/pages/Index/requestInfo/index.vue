@@ -3,6 +3,14 @@ import {ref} from "vue";
 
 let tableData = ref([])
 
+import getinto from "@/pages/Index/requestInfo/getinfo/getinto"
+import {useRoute} from "vue-router";
+const {query} = useRoute()
+ const getinfo = async () =>{
+  const result = await getinto(query.UUID as string)
+   tableData.value = result
+ }
+getinfo()
 </script>
 <template>
   <div class="flex justify-between w-screen  mt-20 font-sans">
@@ -18,10 +26,12 @@ let tableData = ref([])
            style="height: 500px"  >
         <el-table :data="tableData" style="width: 100%"  height="500" >
           <el-table-column prop="date" label="Time" width="200" />
-          <el-table-column prop="name" label="name" width="200" />
-          <el-table-column prop="method" label="method" width="200" />
-          <el-table-column prop="type" label="type" width="200" />
-          <el-table-column prop="duration" label="duration" width="200" />
+          <el-table-column prop="name" label="Name" width="200" />
+          <el-table-column prop="method" label="Method" width="200" />
+          <el-table-column prop="type" label="Type" width="200" />
+          <el-table-column prop="duration" label="Duration" width="200" />
+          <el-table-column prop="status" label="Status" width="200" />
+          <el-table-column prop="response" label="Response" width="200" />
         </el-table>
       </div>
     </div>

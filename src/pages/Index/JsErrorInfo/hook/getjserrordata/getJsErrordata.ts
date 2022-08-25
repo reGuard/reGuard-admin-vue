@@ -21,7 +21,7 @@ export default async function (id: string = 'tracker'){
                     date:dayjs(item.reportTime).format('YYYY-MM-DD'),
                     name:item.position,
                     type:item.errorType,
-                    address:item.message
+                    address:item.message,
                 }
                 tableData.push(arr)
             }

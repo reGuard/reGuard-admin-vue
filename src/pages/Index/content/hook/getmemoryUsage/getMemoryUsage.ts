@@ -7,18 +7,11 @@ export default async function (id:string = ''){
         url:`/tracker?uuid=${id}`
     })
     if(result.code == 1 && result.msg == 'success'){
-      try{
           result.data.forEach((item: any)=> {
-              if (item.memoryUsage){
+              if (item.name == 'pagePerformance' && item.memoryUsage !== ''){
                   memoryUsage = item.memoryUsage
-                  throw new Error('break')
               }
           })
-      }catch (err: any){
-            if(err.message !== 'break'){
-                throw err
-            }
-      }
     }
     return memoryUsage
 }
