@@ -115,7 +115,6 @@ const gettypeinfo = async () => {
 }
 
 onMounted(()=>{
-
   const { proxy } = getCurrentInstance()
 
 
@@ -125,7 +124,6 @@ onMounted(()=>{
 
    let CountInfoDom: HTMLElement  = document.getElementById('countInfo')as HTMLDivElement
    let stayTimeDom: HTMLElement  = document.getElementById('stayTime')as HTMLDivElement
-
 
 
    CountInfoTable = proxy.$echarts.init(CountInfoDom)

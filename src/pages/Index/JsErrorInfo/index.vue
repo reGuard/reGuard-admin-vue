@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import {onMounted,getCurrentInstance} from "vue";
+import {onMounted, getCurrentInstance, ref} from "vue";
 
-const tableData = [
+let tableData = ref([
   {
     date: '2016-05-03',
     name: '32-15',
@@ -48,36 +48,52 @@ const tableData = [
     address: 'Uncaught ReferenceError: xx is not defined',
     type:'jsError'
   },
-]
-
+])
+const {query} = useRoute()
+import getJsErrordata from "@/pages/Index/JsErrorInfo/hook/getjserrordata/getJsErrordata";
+import {useRoute} from "vue-router";
+const getjsinfo = async () =>{
+  const result = await getJsErrordata(query.UUID as string)
+  tableData.value = result
+}
+getjsinfo()
+let JsErrorInfo = {
+  series: [
+    {
+      name: 'Access From',
+      type: 'pie',
+      radius: '50%',
+      data: [
+        { value: 1048, name: 'Reference Error' },
+        { value: 735, name: 'RangeError Error' },
+        { value: 580, name: 'TypeError' },
+        { value: 484, name: ' Syntax Error' },
+      ],
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      }
+    }
+  ]
+}
+let myChart:any
+//获取错误图表数据
+import getErrorInfo from "@/pages/Index/JsErrorInfo/hook/geterrorinfo/getErrorInfo";
+const getjserrorinfo = async () =>{
+  const result = await getErrorInfo(query.UUID as string)
+  JsErrorInfo.series[0].data = result
+  myChart.setOption(JsErrorInfo)
+}
 
 onMounted(()=>{
   const { proxy } = getCurrentInstance()
-  let JsErrorInfo = {
-    series: [
-      {
-        name: 'Access From',
-        type: 'pie',
-        radius: '50%',
-        data: [
-          { value: 1048, name: 'Reference Error' },
-          { value: 735, name: 'Syntax Error' },
-          { value: 580, name: 'TypeError' },
-          { value: 484, name: ' Syntax Error' },
-        ],
-        emphasis: {
-          itemStyle: {
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
-          }
-        }
-      }
-    ]
-  }
   let chartDom = document.getElementById('js');
-  let myChart = proxy.$echarts.init(chartDom);
+  myChart = proxy.$echarts.init(chartDom);
   JsErrorInfo && myChart.setOption(JsErrorInfo);
+  getjserrorinfo()
 })
 
 </script>
