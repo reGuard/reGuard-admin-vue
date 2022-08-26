@@ -1,6 +1,7 @@
 import Content from '@/pages/Index/content/index.vue'
 import JsErrorInfo from "@/pages/Index/JsErrorInfo/index.vue";
 import Performance from '@/pages/Index/Performance/index.vue'
+import requestInfo from '@/pages/Index/requestInfo/index.vue'
 import {markRaw, reactive} from "vue";
 
 //切换动态组件的方法
@@ -15,6 +16,10 @@ const tab = reactive([
     {
     name:'performance',
     components:markRaw(Performance)
+    },
+    {
+        name:'request',
+        components:markRaw(requestInfo)
     }])
 
 let currentTable = reactive({tabComp:tab[0].components})
