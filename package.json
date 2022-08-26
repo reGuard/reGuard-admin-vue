@@ -1,32 +1,20 @@
 {
-  "name": "my-project",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "notebook",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "",
+    "email": ""
+  },
+  "repository": "/notebook",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
   },
-  "dependencies": {
-    "axios": "^0.27.2",
-    "dayjs": "^1.11.5",
-    "echarts": "^5.3.3",
-    "element-plus": "^2.2.13",
-    "nanoid": "^4.0.0",
-    "pinia": "^2.0.20",
-    "vue": "^3.2.37",
-    "vue-i18n": "9",
-    "vue-router": "^4.1.3"
-  },
+  "license": "MIT",
   "devDependencies": {
-    "@types/node": "^18.7.13",
-    "@vitejs/plugin-vue": "^3.0.3",
-    "autoprefixer": "^10.4.8",
-    "postcss": "^8.4.16",
-    "tailwindcss": "^3.1.8",
-    "typescript": "^4.6.4",
-    "vite": "^3.0.7",
-    "vue-tsc": "^0.39.5"
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-mathjax": "^1.2.8"
   }
 }

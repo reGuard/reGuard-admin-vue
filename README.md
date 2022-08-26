@@ -1,5 +1,3 @@
-# reGuard-vue
-Web monitor and data visualization platform based Vue.js
+# README
 
-
-Tailwindcss Docs: https://tailwindcss.com/docs/width
+这个分支用于存放项目主页
