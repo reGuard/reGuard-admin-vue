@@ -173,7 +173,7 @@ const getstaytime = async () =>{
                             <p class="font-semibold text-lg text-black">健康度</p>
                         </div>
                         <div class="text-green-500 font-semibold text-3xl">
-                            {{ Memory ? Memory : 0 }}
+                            {{ Memory ? Memory : 0 }}%
                             <p class="font-semibold text-lg text-black">内存使用度</p>
                         </div>
                         <div v-show="false" class="text-green-500 font-semibold text-3xl">
