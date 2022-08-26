@@ -8,8 +8,8 @@ const { locale } = useI18n()
 
 locale.value = localStorageCache.getItem('language') || 'zh'
 const language_path = ref(locale.value=== 'zh'
-          ? 'src/assets/zh.svg'
-          : 'src/assets/en.svg')
+          ? '../assets/zh.svg'
+          : '../assets/en.svg')
 
  
 const changeLanguage = () => {
@@ -19,8 +19,8 @@ const changeLanguage = () => {
   localStorageCache.setItem('language', currentLanguage)
   
   language_path.value = currentLanguage === 'zh'
-          ? 'src/assets/zh.svg'
-          : 'src/assets/en.svg'
+          ? '../assets/zh.svg'
+          : '../assets/en.svg'
 }
 
 const handleClick = (tab: TabsPaneContext) => {

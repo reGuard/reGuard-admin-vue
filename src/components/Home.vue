@@ -2,6 +2,9 @@
 import { useI18n } from 'vue-i18n'
 import localStorageCache from '@/global/localStorageCache/index'
 import {ref} from "vue";
+import quest from "@/service";
+import {useRouter} from "vue-router";
+
 const { locale } = useI18n()
 
 locale.value = localStorageCache.getItem('language') || 'zh'
@@ -12,9 +15,6 @@ locale.value = localStorageCache.getItem('language') || 'zh'
   localStorageCache.setItem('language', currentLanguage)
 }
 
-
-import quest from "@/service";
-import {useRouter} from "vue-router";
 const router  = useRouter()
 const checkId = async (id: string) =>{
   const result:any= await quest.get({
@@ -75,8 +75,8 @@ const toIndex = async () =>{
           <img
           :src="[
           language === 'zh'
-          ? 'src/assets/zh.svg'
-          : 'src/assets/en.svg'
+          ? '../assets/zh.svg'
+          : '../assets/en.svg'
           ]"
           alt='language'/>
           </button>
