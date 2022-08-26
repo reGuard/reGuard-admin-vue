@@ -4,12 +4,15 @@ import { Search } from '@element-plus/icons-vue'
 import localStorageCache from '@/global/localStorageCache'
 import {changeTable} from "@/Hooks/changeTabs/changeTabs";
 import { ref } from 'vue'
+import ZhLogo from '@/assets/zh.svg';
+import EnLogo from '@/assets/en.svg';
+
 const { locale } = useI18n()
 
 locale.value = localStorageCache.getItem('language') || 'zh'
 const language_path = ref(locale.value=== 'zh'
-          ? '../assets/zh.svg'
-          : '../assets/en.svg')
+          ? ZhLogo
+          : EnLogo)
 
  
 const changeLanguage = () => {
@@ -19,8 +22,8 @@ const changeLanguage = () => {
   localStorageCache.setItem('language', currentLanguage)
   
   language_path.value = currentLanguage === 'zh'
-          ? '../assets/zh.svg'
-          : '../assets/en.svg'
+          ? ZhLogo
+          : EnLogo
 }
 
 const handleClick = (tab: TabsPaneContext) => {

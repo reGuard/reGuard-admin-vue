@@ -4,6 +4,8 @@ import localStorageCache from '@/global/localStorageCache/index'
 import {ref} from "vue";
 import quest from "@/service";
 import {useRouter} from "vue-router";
+import ZhLogo from '@/assets/zh.svg';
+import EnLogo from '@/assets/en.svg';
 
 const { locale } = useI18n()
 
@@ -74,9 +76,9 @@ const toIndex = async () =>{
           >
           <img
           :src="[
-          language === 'zh'
-          ? '../assets/zh.svg'
-          : '../assets/en.svg'
+          language == 'zh'
+          ? ZhLogo
+          : EnLogo
           ]"
           alt='language'/>
           </button>
